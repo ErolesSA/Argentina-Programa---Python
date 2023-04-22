@@ -28,9 +28,13 @@ informar en que sector esta.
 e) El estacionamiento, en algún momento, deberá poder responder cuánto dinero
  se recaudó.
 Ejemplo:
+
 ★ Ingresa el auto en el sector docente AAA111 a las 11 y sale a las 13
+
 ★ Ingresa el auto en el sector alumno BBB111 a las 12 y sale a las 15
+
 ★ Ingresa el auto en el sector general CCC111 a las 10 y sale a las 13
+
 El total a recaudar es: 2*$10 + 3*$5 + 3*$20 
 
 Se pide Modelar el TDA Estacionamiento, escribiendo la interfaz pública de todos los TDAs
