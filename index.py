@@ -1,6 +1,5 @@
 import numpy as np
-# implementar la clase Auto
-# asumiremos que la hora es un entero exacto 1, 2, 8, etc.
+
 class Auto:
     def __init__(self, patente, horaIngreso, horaSalida="Ninguno"):
         self.patente = patente
@@ -20,36 +19,26 @@ class Sector:
         self.__capacidad = capacidad
         self.__valorHora = valorHora
         self.__autos = np.zeros(self.__capacidad, Auto)
-        #indice que nos permite saber cuantos autos hay actualmente 
-        #en el estacionamiento
         self.__actual=0
-        #atributo que nos permite tener la recaudacion diaria
-        #se usuara en el metodo egresarAuto
         self.__recaudacionDia=0
 
-    #lista los datos de los autos estacionados
     def __str__(self):
         ret = ""
         for i in range(len(self.__autos)):
             if self.__autos[i] != 0:
                 ret += str(self.__autos[i])
         return ret
-    #implementar los metodos get/set
-    #El metodo hayLugar verifica si hay disponiblidad
-    #para ingresar un auto en el sector, esto sera cuando la posicion es igual a 0
+
     def hayLugar(self):
         for i in range(self.__capacidad):
            if self.__autos[i]==0:
                return True
         return False
-    #El metodo lugarLibre nos retorna la primera posicion 
-    #libre, que usaremos para agregar un Auto en el sector.
-    #se usa si previamente se consulto si hayLuagar disponible
+
     def __lugarLibre(self):
         for i in range(self.__capacidad):
             if self.__autos[i] == 0:
-                return i
-     #ingresa auto si hayLugar en el primer lugarLibre que encuentra           
+                return i          
     def ingresarAuto(self, auto):
         self.__autos[self.__lugarLibre()] = auto
         self.__actual+=1
@@ -60,10 +49,7 @@ class Sector:
                 if self.__autos[i].patente == patente:
                     return True
         return False
-    #implementar el metodo darPosicion, recibe la patente
-    #realiza la busqueda y devuelve el indice. Para poder 
-    #usar este metodo previamente debemos saber si el Auto
-    #se encuentra en el sector, para ellos usamos el metodo buscarAuto()
+
     def darPosicion(self, patente):
         for i in range(self.__capacidad):
             if self.__autos[i] != 0:
@@ -71,11 +57,7 @@ class Sector:
                     return i
             return False
 
-    #implementar el metodo egresarAuto
-    #debemos cambiar la hora de salida al egresar un auto
-    #calcular el costo, con el metodo calcularPlata 
-    #liberar el espacio, utilizar 0 para indicar que el lugar quedo libre
-    #acumular lo que devuelve calcularPlata en el atributo recaudacionDia
+
     def egresarAuto(self, patente, horaSalida):
         for i in range(self.__capacidad):
             if self.__autos[i] != 0:
@@ -122,7 +104,6 @@ class Estacionamiento:
     self.__sectorAlumno = alumno
     self.__sectorGeneral = general
 
-  #terminar de implementar el metodo STR
   def __str__(self):
     cadenaPrint = str(self.__nombre) + " " + str(self.__sectorDocente) + " " + str(self.__sectorAlumno) + " " +  str(self.__sectorGeneral) + ""
     return cadenaPrint
@@ -194,7 +175,6 @@ class Estacionamiento:
     else:
       print("En el Sector General no hay Autos")
 
-# La prueba se debe realizar sobre la siguiente funcion main que no puede modificarse.
 
 def main():
   secDocente=Sector('Docente',50,10)
@@ -212,7 +192,6 @@ def main():
   unahur.ingresarAuto('Docente', Auto('JJJ123', 5))
   unahur.ingresarAuto('Alumno', Auto('HHH123', 6))
   unahur.ingresarAuto('General', Auto('FFF321', 23))
-  #deberia solo mandar la pantente si lo encuentra recien lo egresa
   if unahur.buscarAuto('YYY321'):
     unahur.egresarAuto('General','YYY321',13)
   if unahur.buscarAuto('KKK345'):
@@ -227,4 +206,7 @@ def main():
 
 
 main()
+
+
+
 
