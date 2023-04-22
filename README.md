@@ -12,9 +12,11 @@ clases presenciales, la universidad nos solicitó ayuda para comenzar a tarifar 
 estacionamiento.
 El estacionamiento tiene una capacidad máxima en general, y a su vez tiene sectores que
 tienen su propia capacidad.
+
 ● El sector docente tiene 50 lugares y cuesta $10 la hora.
 ● El sector de alumnos tiene 50 lugares y cuesta $5 la hora.
 ● Y el sector general, que tiene 100 lugares, cuesta $20 la hora.
+
 Tener en cuenta las siguientes especificaciones:
 a) Cada vez que ingresa un auto al estacionamiento, se registra la hora de ingreso y el
 sector en donde se estaciona.
